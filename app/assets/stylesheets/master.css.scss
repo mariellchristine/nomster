@@ -29,5 +29,21 @@ body {
 .navbar-inverse .navbar-brand {
   color: #DE5223;
   font-family: 'barrioregular', sans-serif;
-  font-size: 26px;
+  font-size: 50px;
+  margin-top: 25px;
+}
+
+.nav.navbar-nav.navbar-right {
+  font-size: 25px;
+  padding: 10px;
+  margin-right: 50px;
+}
+
+.nav.navbar-nav.navbar-right a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav.navbar-nav.navbar-right a:hover {
+  color: pink;
 }
