@@ -5,7 +5,7 @@ class CreateComments < ActiveRecord::Migration
       t.string :rating
 
       t.integer :user_id
-      t.intger :place_id
+      t.integer :place_id
       t.timestamps
     end
     add_index :comments, [:user_id, :place_id]
