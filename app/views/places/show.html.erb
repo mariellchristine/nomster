@@ -32,6 +32,9 @@
   <br />
 
   <div class="pull-right">
+    <button class="btn btn-primary" data-toggle="modal" data-target="#myPhotoModal">
+      Add Photo
+    </button>
     <% if current_user && current_user == @place.user %>
       <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
       <%= link_to 'Destroy', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'btn btn-danger' %>
@@ -39,11 +42,42 @@
   </div>
 
   <div class="clear"></div>
+  
+  <div>
+    <h1>PICTURES</h1>
+    <% @place.photos.each do |photo| %>
+      <%= image_tag photo.picture %>
+      <%= photo.caption %>
+    <% end %>
+  </div>
+
+  <!-- Modal for Pictures -->
+<div class="modal fade" id="myPhotoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Upload photos</h4>
+      </div>
+    <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+      <div class="modal-body">
+        <%= f.input :picture %>
+        <%= f.input :caption %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= f.submit "Submit", class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>  <!-- end Modal for Pictures -->
 
 
+<div class="clear"></div>
 
 
-<!-- Modal -->
+<!-- Modal for Comment -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -64,7 +98,7 @@
           <% end %>
     </div>
   </div>
-</div>
+</div> <!-- end Modal for Comment -->
 
 
 <br />
@@ -75,6 +109,8 @@
     Add a comment
   </button>
 </div>
+
+
   
 <div class="clear"></div>
 

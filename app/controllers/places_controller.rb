@@ -4,10 +4,12 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.order('created_at DESC').page(params[:page]).per(3)
+    @photo = Photo.all
   end
 
   def new
     @place = Place.new
+    @photo = Photo.new
   end
 
   def create
@@ -22,20 +24,21 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @comment = Comment.new
+    @photo = Photo.new
   end
 
   def edit
     @place = Place.find(params[:id])
 
     if @place.user != current_user
-      return render text: 'Not Allowed!!!', status: :forbidden
+      return render text: 'Not Allowed', status: :forbidden
     end
   end
 
   def update
     @place = Place.find(params[:id])
     if @place.user != current_user
-      return render text: 'Not Allowed D:', status: :forbidden
+      return render text: 'Not Allowed', status: :forbidden
     end
 
     @place.update_attributes(place_params)

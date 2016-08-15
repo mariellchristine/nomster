@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem "mini_magick"
+gem 'carrierwave', '0.10.0'
 gem "figaro", ">= 1.0.0"
 gem "geocoder", "1.3.4"
 gem 'devise', '>= 3.2.4'
