@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 
+gem 'responsive_images'
+gem "mini_magick"
 gem 'fog'
 gem 'carrierwave'
 gem "figaro", ">= 1.0.0"

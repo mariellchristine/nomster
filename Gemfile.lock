@@ -209,8 +209,13 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mini_magick (4.5.1)
     mini_portile2 (2.1.0)
     minitest (4.7.5)
+    mobileesp_converted (0.2.3)
+    mobvious (0.3.2)
+      mobileesp_converted (~> 0.2.0)
+      rack (>= 1.1.0)
     multi_json (1.12.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -248,6 +253,8 @@ GEM
     rdoc (3.9.5)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
+    responsive_images (0.1.2)
+      mobvious
     sanitize (2.1.0)
       nokogiri (>= 1.4.4)
     sass (3.4.22)
@@ -302,9 +309,11 @@ DEPENDENCIES
   jquery-rails
   kaminari
   kaminari-bootstrap
+  mini_magick
   pg
   rails (= 4.0.4)
   rails_12factor
+  responsive_images
   sass-rails
   sdoc
   simple_form

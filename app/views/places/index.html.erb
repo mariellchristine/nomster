@@ -12,7 +12,9 @@
       <% if place.photos.present? %>
         <%= image_tag place.photos.last.picture %>
         <%= place.photos.last.caption %><br />
+        
       <% end %>
+
 
 
       <% if place.user.present? %>

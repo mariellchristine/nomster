@@ -3,8 +3,23 @@
 class PictureUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+   include CarrierWave::MiniMagick
 
+   
+  # Mobile version
+  version :mobile do
+    process :resize_to_fit => [300, 300]
+  end
+
+  # Tablet version
+  version :tablet do
+    process :resize_to_fit => [600, 600]
+  end
+
+  # Desktop version
+  version :desktop do
+    process :resize_to_fit => [900, 900]
+  end
 
 
   # Choose what kind of storage to use for this uploader:
